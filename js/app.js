@@ -1,32 +1,26 @@
 const container = document.querySelector(".container")
-const coffees = [
-  { name: "Perspiciatis", image: "images/coffee1.jpg" },
-  { name: "Voluptatem", image: "images/coffee2.jpg" },
-  { name: "Explicabo", image: "images/coffee3.jpg" },
-  { name: "Rchitecto", image: "images/coffee4.jpg" },
-  { name: " Beatae", image: "images/coffee5.jpg" },
-  { name: " Vitae", image: "images/coffee6.jpg" },
-  { name: "Inventore", image: "images/coffee7.jpg" },
-  { name: "Veritatis", image: "images/coffee8.jpg" },
-  { name: "Accusantium", image: "images/coffee9.jpg" },
+const products = [
+  { name: "Code", image: "img/code.svg", url: "https://sign.peruri.co.id/dashboard/peruri-code/" },
+  { name: "Sign", image: "img/sign.svg", url: "https://sign.peruri.co.id/dashboard/peruri-sign/" },
+  { name: "Trust", image: "img/trust.svg", url: "https://sign.peruri.co.id/dashboard/peruri-trust/" },
 ]
 
-const showCoffees = () => {
+const showProducts= () => {
     let output = ""
-    coffees.forEach(
-      ({ name, image }) =>
+    products.forEach(
+      ({ name, image, url }) =>
         (output += `
                 <div class="card">
                   <img class="card--avatar" src=${image} />
                   <h1 class="card--title">${name}</h1>
-                  <a class="card--link" href="#">Taste</a>
+                  <a class="card--link" href=${url}> Info </a>
                 </div>
                 `)
     )
     container.innerHTML = output
   }
   
-  document.addEventListener("DOMContentLoaded", showCoffees)
+  document.addEventListener("DOMContentLoaded", showProducts)
 
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", function() {
