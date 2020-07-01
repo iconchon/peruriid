@@ -19,7 +19,10 @@ const showProducts= () => {
     )
     container.innerHTML = output
   }
-  
+
+const forbidden = document.querySelector(".forbidden")
+
+
   document.addEventListener("DOMContentLoaded", showProducts)
 
   if ("serviceWorker" in navigator) {
