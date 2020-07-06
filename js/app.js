@@ -20,10 +20,7 @@ const showProducts= () => {
     container.innerHTML = output
   }
 
-const forbidden = document.querySelector(".forbidden")
-
-
-  document.addEventListener("DOMContentLoaded", showProducts)
+ document.addEventListener("DOMContentLoaded", showProducts)
 
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", function() {
@@ -33,3 +30,19 @@ const forbidden = document.querySelector(".forbidden")
         .catch(err => console.log("service worker not registered", err))
     })
   }
+
+const button = document.getElementById('post-btn');
+
+button.addEventListener('click', async _ => {
+  try {     
+    const response = await fetch('https://rtm.peruri.co.id/trusted/', {
+      method: 'post',
+      body: {
+        username='bayu',
+      }
+    });
+    console.log('Completed!', response);
+  } catch(err) {
+    console.error(`Error: ${err}`);
+  }
+});

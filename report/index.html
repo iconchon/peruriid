@@ -14,39 +14,53 @@
     gtag('config', 'UA-38780407-2');
   </script>
   <!-- ios support -->
-  <link rel="apple-touch-icon" href="img/icons/icon-72x72.png" />
-  <link rel="apple-touch-icon" href="img/icons/icon-96x96.png" />
-  <link rel="apple-touch-icon" href="img/icons/icon-128x128.png" />
-  <link rel="apple-touch-icon" href="img/icons/icon-144x144.png" />
-  <link rel="apple-touch-icon" href="img/icons/icon-152x152.png" />
-  <link rel="apple-touch-icon" href="img/icons/icon-192x192.png" />
-  <link rel="apple-touch-icon" href="img/icons/icon-384x384.png" />
-  <link rel="apple-touch-icon" href="img/icons/icon-512x512.png" />
+  
   <meta name="apple-mobile-web-app-status-bar" content="#db4938" />
   <meta name="theme-color" content="#db4938" />
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <link rel="stylesheet" href="../css/style.css" />
   <title>PERURI ID</title>
   </head>
   <body>
 
   <main>
-      <nav></nav>
-      <div><button onclick="myFunction()">Klick Here</button></div>
-      <div class="Forbidden">
+  <body >
+    <main >
+    <div align="center">
+    <img src="https://rtm.peruri.co.id/images/custom/peruri_signin.png"/>
+    <h3> 	Dashboard Monitoring Pipeline </h3>
+      
+    <input type='button' id='bt' 
+        onclick='redirect_Page(this)' value='Redirect Page'>
+          
+    <!--     show time lapsed. -->
+      <p id='msg'></p>
       </div>
-      <script type='text/javascript' src='https://rtm.peruri.co.id/javascripts/api/viz_v1.js'></script><div class='tableauPlaceholder' style='width: 1100px; height: 727px;'><object class='tableauViz' width='1100' height='727' style='display:none;'><param name='host_url' value='https%3A%2F%2Frtm.peruri.co.id%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='PipelineManagementv2_2D&#47;PipelineManagement' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='showAppBanner' value='false' /><param name='filter' value='iframeSizedToWindow=true' /></object></div>
-    </main>
+      </main>
+  </body>
 
-    
-    <script>
-    function myFunction() {
-      location.replace("https://rtm.peruri.co.id/views/PipelineManagementv2_2D/PipelineManagement?iframeSizedToWindow=true&:embed=y&:showAppBanner=false&:display_count=no&:showVizHome=no")
-    }
-    </script>
+  <script>
+      // Using ES6 feature. 
+      let redirect_Page = (ele) => {
+          ele.disabled = true;
+          let iCnt = 5;	// for time in seconds.
+          
+          let iTimerId = setInterval(function () {
+        document.getElementById ('msg').innerHTML = 'berpindah dalam ' + iCnt + ' detik';
+              
+              iCnt--;     // decrease counter by 1.
+              
+              if (iCnt === 0) {
+                  // now, redirect page.
+                  window.location.href = 'https://rtm.peruri.co.id/views/PipelineManagementv2_2D/PipelineManagement?iframeSizedToWindow=true&:embed=y&:showAppBanner=false&:display_count=no&:showVizHome=no';
+                  clearInterval(iTimerId);		// clear time interval.
+              }
+          }, 1000);
+      }
+  </script>
+
 
   </body>
 </html>
